@@ -30,14 +30,41 @@ final class RangeToolsTests: XCTestCase {
     }
     
     
+    func testInitRangeWithOnlyLowerBound() {
+        XCTAssertEqual((42...).lowerBound, PartialRangeFrom(lowerBound: 42).lowerBound)
+    }
+    
+    
+    func testInitRangeWithOnlyUpperBound() {
+        XCTAssertEqual((..<42).upperBound, PartialRangeUpTo(upperBound: 42).upperBound)
+        XCTAssertEqual((...42).upperBound, PartialRangeThrough(upperBound: 42).upperBound)
+    }
+    
+    
+    func testInitRangeWithBothLowerAndUpperBound() {
+        
+        let range34Through42 = 34...42
+        let range34To42 = 34..<42
+        
+        XCTAssertEqual(range34Through42.lowerBound, Range(lowerBound: 34, upperBound: 42).lowerBound)
+        XCTAssertEqual(range34To42.lowerBound, ClosedRange(lowerBound: 34, upperBound: 42).lowerBound)
+        
+        XCTAssertEqual(range34Through42.upperBound, Range(lowerBound: 34, upperBound: 42).upperBound)
+        XCTAssertEqual(range34To42.upperBound, ClosedRange(lowerBound: 34, upperBound: 42).upperBound)
+    }
+    
+    
     static var allTests = [
         ("testRangeWithUpperAndLowerBound", testRangeWithUpperAndLowerBound),
         ("testRangeWithUpperBound", testRangeWithUpperBound),
         ("testRangeWithLowerBound", testRangeWithLowerBound),
+        ("testInitRangeWithOnlyLowerBound", testInitRangeWithOnlyLowerBound),
+        ("testInitRangeWithOnlyUpperBound", testInitRangeWithOnlyUpperBound),
+        ("testInitRangeWithBothLowerAndUpperBound", testInitRangeWithBothLowerAndUpperBound),
     ]
 }
 
 
 
-func getLowerBound<RangeType: RangeWithLowerBound>(of range: RangeType) -> RangeType.Bound { range.lowerBound }
-func getUpperBound<RangeType: RangeWithUpperBound>(of range: RangeType) -> RangeType.Bound { range.upperBound }
+private func getLowerBound<RangeType: RangeWithLowerBound>(of range: RangeType) -> RangeType.Bound { range.lowerBound }
+private func getUpperBound<RangeType: RangeWithUpperBound>(of range: RangeType) -> RangeType.Bound { range.upperBound }

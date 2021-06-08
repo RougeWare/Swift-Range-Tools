@@ -29,7 +29,7 @@ public protocol RangeProtocol {
 
 
 
-// MARK: - RangeWithLowerBound
+// MARK: - Ranges with lower bounds
 
 /// A range which has a lower bound, like `a...`, `a...b`, or `a..<b`
 public protocol RangeWithLowerBound: RangeProtocol {
@@ -40,7 +40,18 @@ public protocol RangeWithLowerBound: RangeProtocol {
 
 
 
-// MARK: - RangeWithUpperBound
+/// A range which can be initialized with only its lower bound, like `a...`
+public protocol RangeWhichCanBeInitializedWithOnlyLowerBound: RangeWithLowerBound {
+    
+    /// Initializes this range with its lower bound
+    ///
+    /// - Parameter lowerBound: The range's initial lower bound
+    init(lowerBound: Bound)
+}
+
+
+
+// MARK: - Ranges with upper bounds
 
 /// A range which has an upper bound, like `...a`, `..<a`, `a...b`, or `a..<b`
 public protocol RangeWithUpperBound: RangeProtocol {
@@ -51,8 +62,32 @@ public protocol RangeWithUpperBound: RangeProtocol {
 
 
 
-// MARK: - RangeWithLowerAndUpperBound
+/// A range which can be initialized with only its upper bound, like `..<b` or `...b`
+public protocol RangeWhichCanBeInitializedWithOnlyUpperBound: RangeWithUpperBound {
+    
+    /// Initializes this range with its upper bound
+    ///
+    /// - Parameter upperBound: The range's initial upper bound
+    init(upperBound: Bound)
+}
+
+
+
+// MARK: - Ranges with both lower and upper bounds
 
 /// A range which has a lower and upper bound, like `a...b` or `a..<b`
 public protocol RangeWithLowerAndUpperBound: RangeWithLowerBound, RangeWithUpperBound {
+}
+
+
+
+/// A range which can be initialized with only its lower bound, like `a...`
+public protocol RangeWhichCanBeInitializedWithBothLowerAndUpperBounds: RangeWithLowerAndUpperBound {
+    
+    /// Initializes this range with its lower and upper bounds
+    ///
+    /// - Parameters:
+    ///   - lowerBound: The range's initial lower bound
+    ///   - upperBound: The range's initial upper bound
+    init(lowerBound: Bound, upperBound: Bound)
 }
