@@ -16,9 +16,15 @@ So far, this is the only feature of this package: some protocols to genericize r
 
 In Swift's standard library, all the range types conform to `RangeExpression`. However, this doesn't give you much insight: All it guarantees is that the range's bounds are comparable, that it can contain a value, and that it might be resolved to a `Range` within a given collection.
 
-This package adds more protocols:
+This package adds more protocols. These, for accessing members of a range generically:
 
 - `RangeProtocol`: A protocol to which all ranges, even `NSRange`, conform
 - `RangeWithLowerBound`: Any range which has a lower bound, such as `a...`, `a..<b`, and `a...b`
 - `RangeWithUpperBound`: Any range which has an upper bound, such as `..<b`, `...b`, `a..<b`, and `a...b`
 - `RangeWithLowerAndUpperBound`: Any range which has both a lower and an upper bound, such as `a..<b` and `a...b`
+
+And these for creating ranges generically:
+
+- `RangeWhichCanBeInitializedWithOnlyLowerBound`: Any range which can be initialized only with a lower bound, like `a...`
+- `RangeWhichCanBeInitializedWithOnlyUpperBound`: Any range which can be initialized only with an upper bound, like `..<b` or `...b`
+- `RangeWhichCanBeInitializedWithBothLowerAndUpperBounds`: Any range which can be initialized with both lower and upper bounds, like `a..<b` or `a...b`
