@@ -53,11 +53,14 @@ public protocol RangeWhichCanBeInitializedWithOnlyLowerBound: RangeWithLowerBoun
 
 // MARK: - Ranges with upper bounds
 
-/// A range which has an upper bound, like `...a`, `..<a`, `a...b`, or `a..<b`
+/// A range which has an upper bound, like `...b`, `..<a`, `a...b`, or `a..<b`
 public protocol RangeWithUpperBound: RangeProtocol {
     
     /// The range's upper bound
     var upperBound: Bound { get }
+    
+    /// `true` iff the upper bound of this protocol includes the element at its index, like `...b` and `a...b`. `false` indicates that the upper bound does not include that element, like `..<b` and `a..<b`.
+    static var upperBoundIsInclusive: Bool { get }
 }
 
 

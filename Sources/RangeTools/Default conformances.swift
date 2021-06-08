@@ -11,16 +11,38 @@ import Foundation
 
 // MARK: - Access Protocols
 
-extension Range: RangeWithLowerAndUpperBound {}
-extension ClosedRange: RangeWithLowerAndUpperBound {}
+extension Range: RangeWithLowerAndUpperBound {
+    public static var upperBoundIsInclusive: Bool { false }
+}
+
+
+
+extension ClosedRange: RangeWithLowerAndUpperBound {
+    public static var upperBoundIsInclusive: Bool { true }
+}
+
+
+
 extension PartialRangeFrom: RangeWithLowerBound {}
-extension PartialRangeUpTo: RangeWithUpperBound {}
-extension PartialRangeThrough: RangeWithUpperBound {}
+
+
+
+extension PartialRangeUpTo: RangeWithUpperBound {
+    public static var upperBoundIsInclusive: Bool { false }
+}
+
+
+
+extension PartialRangeThrough: RangeWithUpperBound {
+    public static var upperBoundIsInclusive: Bool { true }
+}
 
 
 
 #if canImport(ObjectiveC)
-extension NSRange: RangeWithLowerAndUpperBound {}
+extension NSRange: RangeWithLowerAndUpperBound {
+    public static var upperBoundIsInclusive: Bool { false }
+}
 #endif
 
 
