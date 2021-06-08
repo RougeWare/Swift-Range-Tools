@@ -1,3 +1,9 @@
+[![Tested on GitHub Actions](https://github.com/RougeWare/Swift-Range-Tools/actions/workflows/swift.yml/badge.svg)](https://github.com/RougeWare/Swift-Range-Tools/actions/workflows/swift.yml) [![](https://www.codefactor.io/repository/github/rougeware/swift-range-tools/badge)](https://www.codefactor.io/repository/github/rougeware/swift-range-tools)
+
+[![Swift 5](https://img.shields.io/badge/swift-5-brightgreen.svg?logo=swift&logoColor=white)](https://swift.org) [![swift package manager 5.3 is supported](https://img.shields.io/badge/swift%20package%20manager-5.3-brightgreen.svg)](https://swift.org/package-manager) [![Supports macOS, iOS, tvOS, watchOS, Linux, & Windows](https://img.shields.io/badge/macOS%20%7C%20iOS%20%7C%20tvOS%20%7C%20watchOS%20%7C%20Linux%20%7C%20Windows-grey.svg)](./Package.swift) 
+[![](https://img.shields.io/github/release-date/rougeware/swift-range-tools?label=latest%20release)](https://github.com/RougeWare/Swift-range-tools/releases/latest)
+
+
 # Swift `RangeTools` #
 
 Some small tools to make Ranges easier to work with in Swift.
