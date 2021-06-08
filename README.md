@@ -20,7 +20,7 @@ This package adds more protocols. These, for accessing members of a range generi
 
 - `RangeProtocol`: A protocol to which all ranges, even `NSRange`, conform
 - `RangeWithLowerBound`: Any range which has a lower bound, such as `a...`, `a..<b`, and `a...b`
-- `RangeWithUpperBound`: Any range which has an upper bound, such as `..<b`, `...b`, `a..<b`, and `a...b`
+- `RangeWithUpperBound`: Any range which has an upper bound, such as `..<b`, `...b`, `a..<b`, and `a...b`. Also includes info on whether that upper bound is inclusive.
 - `RangeWithLowerAndUpperBound`: Any range which has both a lower and an upper bound, such as `a..<b` and `a...b`
 
 And these for creating ranges generically:

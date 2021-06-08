@@ -54,6 +54,15 @@ final class RangeToolsTests: XCTestCase {
     }
     
     
+    func test_upperBoundIsInclusive() {
+        XCTAssertFalse(type(of:  ..<7).upperBoundIsInclusive)
+        XCTAssertTrue (type(of:  ...7).upperBoundIsInclusive)
+        XCTAssertFalse(type(of: 5..<7).upperBoundIsInclusive)
+        XCTAssertTrue (type(of: 5...7).upperBoundIsInclusive)
+        XCTAssertFalse(type(of: NSRange(location: 5, length: 2)).upperBoundIsInclusive)
+    }
+    
+    
     static var allTests = [
         ("testRangeWithUpperAndLowerBound", testRangeWithUpperAndLowerBound),
         ("testRangeWithUpperBound", testRangeWithUpperBound),
