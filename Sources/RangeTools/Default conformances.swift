@@ -23,7 +23,9 @@ extension ClosedRange: RangeWithLowerAndUpperBound {
 
 
 
-extension PartialRangeFrom: RangeWithLowerBound {}
+extension PartialRangeFrom: RangeWithLowerBound {
+    public static var upperBoundIsInclusive: Bool { true }
+}
 
 
 

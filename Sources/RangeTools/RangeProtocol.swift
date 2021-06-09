@@ -20,6 +20,10 @@ public protocol RangeProtocol {
     
     
     
+    /// `true` iff the upper bound of this protocol includes the element at its index, like `a...`, `...b`, and `a...b`. `false` indicates that the upper bound does not include that element, like `..<b` and `a..<b`.
+    static var upperBoundIsInclusive: Bool { get }
+    
+    
     /// Determines whether this range contains the given element
     ///
     /// - Parameter element: The element you want to see if this range contains
@@ -58,9 +62,6 @@ public protocol RangeWithUpperBound: RangeProtocol {
     
     /// The range's upper bound
     var upperBound: Bound { get }
-    
-    /// `true` iff the upper bound of this protocol includes the element at its index, like `...b` and `a...b`. `false` indicates that the upper bound does not include that element, like `..<b` and `a..<b`.
-    static var upperBoundIsInclusive: Bool { get }
 }
 
 

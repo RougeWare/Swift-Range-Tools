@@ -55,6 +55,7 @@ final class RangeToolsTests: XCTestCase {
     
     
     func test_upperBoundIsInclusive() {
+        XCTAssertTrue (type(of: 5... ).upperBoundIsInclusive)
         XCTAssertFalse(type(of:  ..<7).upperBoundIsInclusive)
         XCTAssertTrue (type(of:  ...7).upperBoundIsInclusive)
         XCTAssertFalse(type(of: 5..<7).upperBoundIsInclusive)

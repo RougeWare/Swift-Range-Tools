@@ -18,9 +18,9 @@ In Swift's standard library, all the range types conform to `RangeExpression`. H
 
 This package adds more protocols. These, for accessing members of a range generically:
 
-- `RangeProtocol`: A protocol to which all ranges, even `NSRange`, conform
+- `RangeProtocol`: A protocol to which all ranges, even `NSRange`, conform. Also includes info on whether that upper bound is inclusive.
 - `RangeWithLowerBound`: Any range which has a lower bound, such as `a...`, `a..<b`, and `a...b`
-- `RangeWithUpperBound`: Any range which has an upper bound, such as `..<b`, `...b`, `a..<b`, and `a...b`. Also includes info on whether that upper bound is inclusive.
+- `RangeWithUpperBound`: Any range which has an upper bound, such as `..<b`, `...b`, `a..<b`, and `a...b`
 - `RangeWithLowerAndUpperBound`: Any range which has both a lower and an upper bound, such as `a..<b` and `a...b`
 
 And these for creating ranges generically:
